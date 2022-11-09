@@ -25,10 +25,7 @@ def create_data_tag(df):
     n_sheets = len(sheets)
     for key in range(n_rows):
         for i in range(n_cols):
-            if i < n_sheets:
-              value = (int)(df[sheets[i]][cols[i+1]][key])
-            else:
-              value = (int)(df[sheets[i%n_sheets]][cols[i+1]][key])
+            value = (int)(df[sheets[i%n_sheets]][cols[i+1]][key])
             auto_tag(value)
         pg.press("down")
         pg.press("left", presses=6)
